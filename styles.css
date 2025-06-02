@@ -34,7 +34,6 @@ body {
     flex: 1;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
 }
 
 /* calculator outline */
@@ -43,10 +42,12 @@ body {
     flex-shrink: 0;
     flex-direction: column;
     border-radius: 15px;
+    border: 1px solid white;
 
     width: 25rem;
     height: 30rem;
     flex-shrink: 0;
+    background: url(image/carbonfiber.jpg);
 }
 
 #screen {
@@ -55,8 +56,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 10rem;
-
-    background-color: rgb(85, 85, 54);
     border-radius: 15px 15px 0 0;;
 }
 
@@ -85,8 +84,6 @@ body {
     height: 20rem;
     border-radius: 0 0 15px 15px;
     flex: 0 0 auto;
-
-    background-color: antiquewhite;
 }
 /* function button container */
 #topFunctionButtons {
@@ -102,7 +99,6 @@ body {
 #bottomButtons {
     flex: 1;
     display: flex;
-    border: 1px solid red;
     padding: .2rem;
 }
 
