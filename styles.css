@@ -23,22 +23,23 @@ body {
 /* calculator */
 
 #calculatorContainer {
-    border: 1px solid green;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 #calculator {
-    border: 2px solid white;
+    border: 5px solid white;
     border-radius: 15px;
     margin: 2rem;
+    width: 65vh;
+    height: 80vh;
 }
 
 #screen {
     display: flex;
-    width: 60vh;
+    min-width: 60vh;
     height: 20vh;
 
     justify-content: center;
@@ -59,6 +60,7 @@ body {
 #bodyCalculator {
     display: flex;
     flex-direction: column;
+    border-radius: 0 0 15px 15px;
 
     width: 60vh;
     height: 60vh;
@@ -73,26 +75,21 @@ body {
 
 /* container for all buttons on the bottom */
 #bottomButtons {
-    border: 1px solid blue; 
     flex: 1;
     display: flex;
-    justify-content: space-between;
 }
 
 /* container for all numbered and period buttons on the left */
 #numeralContainer {
-    border: 2px solid #121212;
+    
+    border-radius: 0 0 0 15px;
     display: flex;
+    flex: 2 0 auto;
     justify-content: center;
     align-items: center;
+    border: 1px solid red;
 
-    padding: 1rem;
-}
-
-
-
-#ans {
-    
+    padding: 0.3rem;
 }
 
 /* container for flex objects containing numeral buttons   */
@@ -100,14 +97,17 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    
 }
 
 /* number buttonstyle    */
-.numButtons {
-    box-sizing: border-box;
-    padding: 5px 20px;
+.numButtons,
+.funcButton {
+    flex: 1 auto;
+    width: 4rem;
+    height: 3rem;
     font-size: 1.5rem;
-    margin: .6rem;
+    margin: .3rem
 }
 
 #period {
@@ -123,24 +123,43 @@ body {
 #middleRow,
 #bottomRow,
 #endRow {
-    border: 1px solid red;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 0px;
+    flex: 1 auto;
 }
 
 #functionsContainer {
-    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border: 1px solid purple;
+    border-radius: 0 0 15px 0;
 }
 
 #functions {
     flex: 1;
 
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    gap: 2px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+#rowZero,
+#rowOne,
+#rowTwo,
+#rowThree {
+    display: flex;
+}
+
+#del,
+#ac {
+    background-color: maroon;
+    color: white;
+}
+
+.funcButton {
+    flex: 1;
+    min-width: 3rem;
 }
