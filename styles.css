@@ -73,7 +73,13 @@ body {
 #operator {
     width: 3rem;
     height: 4rem;
+    margin-left: .5rem;
     font-size: 3rem;
+}
+
+#topDisplay,
+#bottomDisplay {
+    margin-right: 0.5rem;
 }
 
 #numerator,
@@ -155,9 +161,9 @@ body {
     margin: .3rem
 }
 
-#period {
+#decimal {
     padding: 5px 24px;
-    border-radius: 0 0 0 15px
+    border-radius: 0 0 0 15px;
 }
 
 #seven {
