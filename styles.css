@@ -62,11 +62,22 @@ body {
 
 #display {
     display: flex;
+    flex-direction: column;
     flex: 1;
-    height: 7rem;
-    margin: 2rem;
+    height: 8rem;
+    margin: 1rem;
     background-color: white;
 }
+
+#topDisplay,
+#bottomDisplay {
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid;
+}
+
 
 #bodyCalculator {
     display: flex;
@@ -78,20 +89,25 @@ body {
     background-color: antiquewhite;
 }
 /* function button container */
-#functionButtons {
-    border: 1px solid red;
+#topFunctionButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     height: 5rem;
 }
+
+
 
 /* container for all buttons on the bottom */
 #bottomButtons {
     flex: 1;
     display: flex;
+    border: 1px solid red;
+    padding: .2rem;
 }
 
 /* container for all numbered and period buttons on the left */
 #numeralContainer {
-    
     border-radius: 0 0 0 15px;
     display: flex;
     flex: 2 0 auto;
@@ -106,12 +122,25 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    
+}
+
+/* all button style */
+.topButton,
+.numButtons,
+.functionButtons {
+    border: 2px solid black;
+}
+
+.topButton {
+    height: 3rem;
+    width: 4rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
 }
 
 /* number buttonstyle    */
 .numButtons,
-.funcButton {
+.functionButtons {
     flex: 1 auto;
     width: 4rem;
     height: 3rem;
@@ -126,6 +155,14 @@ body {
 
 #seven {
     border-radius: 15px 0 0;
+}
+
+#ac {
+    border-radius: 0 15px 0 0;
+}
+
+#ans {
+    border-radius: 0 0 15px 0;
 }
 
 #topRow,
@@ -167,7 +204,7 @@ body {
     color: white;
 }
 
-.funcButton {
+.functionButtons {
     flex: 1;
     min-width: 3rem;
 }

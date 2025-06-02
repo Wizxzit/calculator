@@ -15,17 +15,16 @@
         <div id="calculator">
             <div id="screen">
                 <div id="display">
-                    <div id="integer"></div>
-                    <div id="decimal">.</div>
-                    <div id="float"></div>
+                    <div id="topDisplay"></div>
+                    <div id="bottomDisplay"></div>
                 </div>
             </div>
             <div id="bodyCalculator">
-                <div id="functionButtons">
-                    <button>+</button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
+                <div id="topFunctionButtons">
+                    <button class="topButton">sin</button>
+                    <button class="topButton">cos</button>
+                    <button class="topButton">tan</button>
+                    <button class="topButton">log</button>
                 </div>
                 <div id="bottomButtons">
                     <div id="numeralContainer">
@@ -56,19 +55,19 @@
                     <div id="functionsContainer">
                         <div id="functions">
                             <div id="rowZero">
-                                <button class="funcButton" id="del">Del</button>
-                                <button class="funcButton" id="ac">AC</button>
+                                <button class="functionButtons" id="del">Del</button>
+                                <button class="functionButtons" id="ac">AC</button>
                             </div>
                             <div id="rowOne">
-                                <button class="funcButton">+</button>
-                                <button class="funcButton">-</button>
+                                <button class="functionButtons">+</button>
+                                <button class="functionButtons">-</button>
                             </div>
                             <div id="rowTwo">
-                                <button class="funcButton">/</button>
-                                <button class="funcButton">x</button>
+                                <button class="functionButtons">/</button>
+                                <button class="functionButtons">x</button>
                             </div>
                             <div id="rowThree">
-                                <button class="funcButton">ans</button>
+                                <button class="functionButtons" id="ans">ans</button>
                             </div>
                         </div>
                     </div>
