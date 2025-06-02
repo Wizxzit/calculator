@@ -20,6 +20,8 @@ body {
     color: white;
 }
 
+/* calculator */
+
 #calculatorContainer {
     border: 1px solid green;
 
@@ -31,6 +33,7 @@ body {
 #calculator {
     border: 2px solid white;
     border-radius: 15px;
+    margin: 2rem;
 }
 
 #screen {
@@ -42,7 +45,7 @@ body {
     align-items: center;
 
     background-color: rgb(85, 85, 54);
-    border: 1px solid red;
+    border-radius: 15px 15px 0 0;;
 }
 
 #display {
@@ -64,11 +67,11 @@ body {
 }
 
 #functionButtons {
-    border: 1px solid green;
     flex: 1;
     max-height: 15vh;
 }
 
+/* container for all buttons on the bottom */
 #bottomButtons {
     border: 1px solid blue; 
     flex: 1;
@@ -76,6 +79,7 @@ body {
     justify-content: space-between;
 }
 
+/* container for all numbered and period buttons on the left */
 #numeralContainer {
     border: 2px solid #121212;
     display: flex;
@@ -85,14 +89,57 @@ body {
     padding: 1rem;
 }
 
+
+
+#ans {
+    
+}
+
+/* container for flex objects containing numeral buttons   */
 #numeral {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
+/* number buttonstyle    */
+.numButtons {
+    box-sizing: border-box;
+    padding: 5px 20px;
+    font-size: 1.5rem;
+    margin: .6rem;
+}
 
+#period {
+    padding: 5px 24px;
+    border-radius: 0 0 0 15px
+}
+
+#seven {
+    border-radius: 15px 0 0;
+}
+
+#topRow,
+#middleRow,
+#bottomRow,
+#endRow {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+#functionsContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid purple;
 }
 
 #functions {
-    border: 1px solid white;   
+    flex: 1;
+
     display: flex;
     flex-direction: column;
     gap: 2px;
