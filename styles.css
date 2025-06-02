@@ -48,6 +48,8 @@ body {
     height: 30rem;
     flex-shrink: 0;
     background: url(image/carbonfiber.jpg);
+    background-attachment: fixed;
+    background-size: 200px auto;
 }
 
 #screen {
@@ -68,15 +70,23 @@ body {
     background-color: white;
 }
 
-#topDisplay,
+#operator {
+    width: 3rem;
+    height: 4rem;
+    font-size: 3rem;
+}
+
+#numerator,
 #bottomDisplay {
     flex:1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 1px solid;
+    font-size: 3rem;
 }
-
+#numerator {
+    justify-content: flex-start;
+}
 
 #bodyCalculator {
     display: flex;
@@ -121,13 +131,13 @@ body {
 }
 
 /* all button style */
-.topButton,
+.topButtons,
 .numButtons,
 .functionButtons {
     border: 2px solid black;
 }
 
-.topButton {
+.topButtons {
     height: 3rem;
     width: 4rem;
     font-size: 1.2rem;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="styles.css" defer></script>
+    <script src="javascript.js" defer></script>
     <title>Calculator</title>
 </head>
 
@@ -15,39 +15,44 @@
         <div id="calculator">
             <div id="screen">
                 <div id="display">
+                    
+                    <div id="numerator">
+                    <div id="operator"></div>
                     <div id="topDisplay"></div>
+                    </div>
+                    
                     <div id="bottomDisplay"></div>
                 </div>
             </div>
             <div id="bodyCalculator">
                 <div id="topFunctionButtons">
-                    <button class="topButton">sin</button>
-                    <button class="topButton">cos</button>
-                    <button class="topButton">tan</button>
-                    <button class="topButton">log</button>
+                    <button class="topButtons" id="sin">sin</button>
+                    <button class="topButtons" id="cos">cos</button>
+                    <button class="topButtons" id="tan">tan</button>
+                    <button class="topButtons" id="log">log</button>
                 </div>
                 <div id="bottomButtons">
                     <div id="numeralContainer">
                         <div id="numeral">
                             <div id="topRow">
                                 <button class="numButtons" id="seven">7</button>
-                                <button class="numButtons">8</button>
-                                <button class="numButtons">9</button>
+                                <button class="numButtons" id="eight">8</button>
+                                <button class="numButtons" id="nine">9</button>
                             </div>
                             <div id="middleRow">
-                                <button class="numButtons">4</button>
-                                <button class="numButtons">5</button>
-                                <button class="numButtons">6</button>
+                                <button class="numButtons" id="four">4</button>
+                                <button class="numButtons" id="five">5</button>
+                                <button class="numButtons" id="six">6</button>
                             </div>
                             <div id="bottomRow">
-                                <button class="numButtons">1</button>
-                                <button class="numButtons">2</button>
-                                <button class="numButtons">3</button>
+                                <button class="numButtons" id="one">1</button>
+                                <button class="numButtons" id="two">2</button>
+                                <button class="numButtons" id="three">3</button>
                             </div>
                             <div id="endRow">
                                 <button class="numButtons" id="period">.</button>
-                                <button class="numButtons">0</button>
-                                <button class="numButtons">=</button>
+                                <button class="numButtons" id="zero">0</button>
+                                <button class="numButtons" id="equal">=</button>
 
                             </div>
                         </div>
@@ -59,12 +64,12 @@
                                 <button class="functionButtons" id="ac">AC</button>
                             </div>
                             <div id="rowOne">
-                                <button class="functionButtons">+</button>
-                                <button class="functionButtons">-</button>
+                                <button class="functionButtons" id="plus">+</button>
+                                <button class="functionButtons" id="minus">-</button>
                             </div>
                             <div id="rowTwo">
-                                <button class="functionButtons">/</button>
-                                <button class="functionButtons">x</button>
+                                <button class="functionButtons" id="divide">/</button>
+                                <button class="functionButtons" id="multiply">x</button>
                             </div>
                             <div id="rowThree">
                                 <button class="functionButtons" id="ans">ans</button>
