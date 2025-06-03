@@ -1,8 +1,8 @@
 // variables
 let answer = 0;
 let bottomString = "", topString = "";
-let sum = 0;
 let mathFunction = (a, b) => a + b;
+let lastPressed = "num";
 
 // DOM 
 const topDisplay = document.getElementById("topDisplay");
@@ -13,19 +13,23 @@ const currentOperator = document.getElementById("operator");
 const one = document.getElementById("one");
 one.addEventListener('click', function () {
     leadingZero();
-    addToBottom(1)
+    Pressed();
+    addToBottom(1);
+    lastPressed = "num";
 });
 
 const two = document.getElementById("two");
 two.addEventListener('click', function () {
     leadingZero();
     addToBottom(2);
+    lastPressed = "num";
 });
 
 const three = document.getElementById("three");
 three.addEventListener('click', function () {
     leadingZero();
     addToBottom(3);
+    lastPressed = "num";
 });
 
 const four = document.getElementById("four");
@@ -38,36 +42,42 @@ const five = document.getElementById("five");
 five.addEventListener('click', function () {
     leadingZero();
     addToBottom(5);
+    lastPressed = "num";
 });
 
 const six = document.getElementById("six");
 six.addEventListener('click', function () {
     leadingZero();
     addToBottom(6);
+    lastPressed = "num";
 });
 
 const seven = document.getElementById("seven");
 seven.addEventListener('click', function () {
     leadingZero();
     addToBottom(7);
+    lastPressed = "num";
 });
 
 const eight = document.getElementById("eight");
 eight.addEventListener('click', function () {
     leadingZero();
     addToBottom(8);
+    lastPressed = "num";
 });
 
 const nine = document.getElementById("nine");
 nine.addEventListener('click', function () {
     leadingZero();
     addToBottom(9);
+    lastPressed = "num";
 });
 
 const zero = document.getElementById("zero");
 zero.addEventListener('click', function () {
     leadingZero();
     addToBottom(0);
+    lastPressed = "num";
 });
 
 //decimal button
@@ -82,10 +92,12 @@ decimal.addEventListener('click', function () {
 const equal = document.getElementById("equal");
 equal.addEventListener('click', function () {
     clearDisplay();
-    displayAnsBottom();
-    clearStrings();
+
+    answer = evaulate(topString, bottomString);
+    topString = "";
     bottomString = answer;
-    lastpress = "function";
+    bottomDisplay.append(justifyAns(bottomString));
+    lastPressed = "equal";
 });
 
 // ans button
@@ -108,17 +120,18 @@ ans.addEventListener('click', function () {
 const plus = document.getElementById("plus");
 plus.addEventListener('click', function () {
     mathFunction = (a, b) => a + b;
-    clearDisplay;
 
     if (topString == "") {
-        answer = bottomString;
-        displayAnsTop();
+        topString = bottomString;
+        clearBottom()
+        topDisplay.append(topString);
     } else {
         answer = evaulate(topString, bottomString);
         clearBottom();
         displayAnsTop();
     }
     currentOperator.append("+");
+    lastPressed = "function";
 });
 
 const minus = document.getElementById("minus");
@@ -128,6 +141,7 @@ minus.addEventListener('click', function () {
 
     if (topString == "") {
         answer = bottomString;
+        clear(bottomDisplay);
         displayAnsTop();
     } else {
         answer = evaulate(topString, bottomString);
@@ -135,6 +149,7 @@ minus.addEventListener('click', function () {
         displayAnsTop();
     }
     currentOperator.append("-");
+    lastPressed = "function";
 });
 
 const divide = document.getElementById("divide");
@@ -144,6 +159,7 @@ divide.addEventListener('click', function () {
 
     if (topString == "") {
         answer = bottomString;
+        clear(bottomDisplay);
         displayAnsTop();
     } else {
         answer = evaulate(topString, bottomString);
@@ -151,6 +167,7 @@ divide.addEventListener('click', function () {
         displayAnsTop();
     }
     currentOperator.append("/");
+    lastPressed = "function";
 });
 
 const multiply = document.getElementById("multiply");
@@ -167,6 +184,7 @@ multiply.addEventListener('click', function () {
         displayAnsTop();
     }
     currentOperator.append("x");
+    lastPressed = "function";
 });
 
 // ac button
@@ -209,7 +227,12 @@ function leadingZero() {
 function clearBottom() {
     clear(bottomDisplay);
     bottomString = "";
-}
+};
+
+function clearTop() {
+    clear(topString);
+    topString = "";
+};
 
 function evaulate(str1, str2) {
     return mathFunction(Number(str1), Number(str2));
@@ -228,18 +251,20 @@ function clearStrings() {
     bottomString = "";
 };
 
+// topString is for storing "rolling" answers, therefore don't clear strings
 function displayAnsTop() {
     clearDisplay();
     clearStrings();
-    topString = `${answer}`;
+    topString = answer;
     topDisplay.append(topString);
 }
 
+// bottomString is for displaying final answer
 function displayAnsBot() {
     clearDisplay();
     clearStrings();
     bottomString = `${answer}`;
-    topDisplay.append(bottomString);
+    bottomDisplay.append(bottomString);
 }
 
 // adds string to bottomString and Display
@@ -254,6 +279,25 @@ function containDecimal() {
         return true;
     } else {
         return false;
+    }
+};
+
+// checks to see if the state of the calculator is after an equal button press
+function afterEqual() {
+   if (currentOperator.innerHTML.trim() === "") {
+    return true;
+   } else {
+    return false;
+   }
+};
+
+function Pressed() {
+    if (lastPressed === "num") {
+    } else if (lastPressed == "equal") {
+        clear(bottomDisplay);
+        bottomString = "";
+    } else {
+
     }
 };
 
