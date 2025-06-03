@@ -9,11 +9,10 @@ const topDisplay = document.getElementById("topDisplay");
 const bottomDisplay = document.getElementById("bottomDisplay");
 const currentOperator = document.getElementById("operator");
 
-
-
 // numeral buttons
 const one = document.getElementById("one");
 one.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(1);
@@ -21,6 +20,7 @@ one.addEventListener('click', function () {
 
 const two = document.getElementById("two");
 two.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(2);
@@ -28,6 +28,7 @@ two.addEventListener('click', function () {
 
 const three = document.getElementById("three");
 three.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(3);
@@ -35,6 +36,7 @@ three.addEventListener('click', function () {
 
 const four = document.getElementById("four");
 four.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(4);
@@ -42,6 +44,7 @@ four.addEventListener('click', function () {
 
 const five = document.getElementById("five");
 five.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(5);
@@ -49,6 +52,7 @@ five.addEventListener('click', function () {
 
 const six = document.getElementById("six");
 six.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(6);
@@ -56,6 +60,7 @@ six.addEventListener('click', function () {
 
 const seven = document.getElementById("seven");
 seven.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(7);
@@ -63,6 +68,7 @@ seven.addEventListener('click', function () {
 
 const eight = document.getElementById("eight");
 eight.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(8);
@@ -70,6 +76,7 @@ eight.addEventListener('click', function () {
 
 const nine = document.getElementById("nine");
 nine.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
     appendDisplay(9);
@@ -77,12 +84,10 @@ nine.addEventListener('click', function () {
 
 const zero = document.getElementById("zero");
 zero.addEventListener('click', function () {
+    leadingZero();
     lastPressed();
     lastpress = "num";
-    if ((bottomString === "") || (bottomString === "0") || (containDecimal())) {
-    } else {
-        appendDisplay(0);
-    }
+    appendDisplay(0);
 });
 
 //decimal button
@@ -98,6 +103,7 @@ const plus = document.getElementById("plus");
 plus.addEventListener('click', function () {
     mathFunction = (a, b) => a + b;
     moveUp();
+    clear(currentOperator);
     currentOperator.append("+");
 });
 
@@ -105,6 +111,7 @@ const minus = document.getElementById("minus");
 minus.addEventListener('click', function () {
     mathFunction = (a, b) => a - b;
     moveUp();
+    clear(currentOperator);
     currentOperator.append("-");
 });
 
@@ -112,6 +119,7 @@ const divide = document.getElementById("divide");
 divide.addEventListener('click', function () {
     mathFunction = (a, b) => a / b;
     moveUp();
+    clear(currentOperator);
     currentOperator.append("/");
 });
 
@@ -119,6 +127,7 @@ const multiply = document.getElementById("multiply");
 multiply.addEventListener('click', function () {
     mathFunction = (a, b) => a * b;
     moveUp();
+    clear(currentOperator);
     currentOperator.append("x");
 });
 
@@ -138,6 +147,7 @@ ac.addEventListener('click', function () {
     clearDisplay();
     clearStrings();
     answer = 0;
+    bottomString = "0";
     bottomDisplay.append("0");
 });
 
@@ -151,9 +161,14 @@ ans.addEventListener('click', function () {
     }
 });
 
+// del button
 const del = document.getElementById("del");
 del.addEventListener('click', function () {
-    if (bottomString == "") {       
+    if ((bottomString == "") || (bottomString.length === 1)) {
+        clear(bottomDisplay);
+        bottomDisplay.append("0");
+        bottomString = "0";
+    } else if (bottomString == "0") {
     } else {
         bottomString = bottomString.substring(0,bottomString.length-1);
         clear(bottomDisplay);
@@ -167,6 +182,13 @@ function clear(display) {
     display.innerHTML = "";
 };
 
+function leadingZero() {
+    if (bottomString == "0") {
+        bottomString = "";
+        clear(bottomDisplay);
+    }
+};
+
 // appends str to bottom display and bottomString
 function appendDisplay(value) {
     bottomString += `${value}`;
@@ -175,6 +197,7 @@ function appendDisplay(value) {
 
 function displayAnsBottom() {
     answer = evaulate(topString, bottomString);
+    bottomString = answer;
     bottomDisplay.append(answer);
 };
 
@@ -209,6 +232,7 @@ function clearStrings() {
     bottomString = "";
 };
 
+// moves bottomString up to topString, moves bottomDisplay up to topDisplay
 function moveUp() {
     topString = bottomString;
     bottomString = "";
@@ -216,6 +240,7 @@ function moveUp() {
     clear(bottomDisplay);
 };
 
+// checks to see if bottomString has a decimal
 function containDecimal() {
     if (bottomString.includes(".")) {
         return true;
@@ -225,9 +250,8 @@ function containDecimal() {
 };
 
 function init() {
-    bottomString = "";
-    appendDisplay(0);
-    lastpress = "function";
+    bottomString = "0";
+    bottomDisplay.append("0");
 };
 
 init();
