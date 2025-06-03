@@ -21,6 +21,7 @@ one.addEventListener('click', function () {
 const two = document.getElementById("two");
 two.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(2);
     lastPressed = "num";
 });
@@ -28,6 +29,7 @@ two.addEventListener('click', function () {
 const three = document.getElementById("three");
 three.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(3);
     lastPressed = "num";
 });
@@ -35,12 +37,14 @@ three.addEventListener('click', function () {
 const four = document.getElementById("four");
 four.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(4);
 });
 
 const five = document.getElementById("five");
 five.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(5);
     lastPressed = "num";
 });
@@ -48,6 +52,7 @@ five.addEventListener('click', function () {
 const six = document.getElementById("six");
 six.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(6);
     lastPressed = "num";
 });
@@ -55,6 +60,7 @@ six.addEventListener('click', function () {
 const seven = document.getElementById("seven");
 seven.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(7);
     lastPressed = "num";
 });
@@ -62,6 +68,7 @@ seven.addEventListener('click', function () {
 const eight = document.getElementById("eight");
 eight.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(8);
     lastPressed = "num";
 });
@@ -69,6 +76,7 @@ eight.addEventListener('click', function () {
 const nine = document.getElementById("nine");
 nine.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(9);
     lastPressed = "num";
 });
@@ -76,6 +84,7 @@ nine.addEventListener('click', function () {
 const zero = document.getElementById("zero");
 zero.addEventListener('click', function () {
     leadingZero();
+    Pressed();
     addToBottom(0);
     lastPressed = "num";
 });
@@ -96,7 +105,7 @@ equal.addEventListener('click', function () {
     answer = evaulate(topString, bottomString);
     topString = "";
     bottomString = answer;
-    bottomDisplay.append(justifyAns(bottomString));
+    bottomDisplay.append(bottomString);
     lastPressed = "equal";
 });
 
@@ -123,7 +132,7 @@ plus.addEventListener('click', function () {
 
     if (topString == "") {
         topString = bottomString;
-        clearBottom()
+        clearBottom();
         topDisplay.append(topString);
     } else {
         answer = evaulate(topString, bottomString);
@@ -263,7 +272,7 @@ function displayAnsTop() {
 function displayAnsBot() {
     clearDisplay();
     clearStrings();
-    bottomString = `${answer}`;
+    bottomString = answer;
     bottomDisplay.append(bottomString);
 }
 
@@ -303,9 +312,8 @@ function Pressed() {
 
 function justifyAns(ans) {
     if (ans.length > 12) {
-        ans = ans.slice(0, 12);
-    } return ans;
-};
+        return Number(ans.slice(0, 12));
+}};
 
 function init() {
     bottomString = "0";
