@@ -73,13 +73,20 @@ body {
 #operator {
     width: 3rem;
     height: 4rem;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
     font-size: 3rem;
 }
 
 #topDisplay,
 #bottomDisplay {
-    margin-right: 0.5rem;
+    margin: 0 0.5rem 0 0.5rem;
+    width: 23rem;
+    overflow: hidden;
+}
+
+#topDisplay {
+    width: 18rem;
+    height: 4rem;
 }
 
 #numerator,

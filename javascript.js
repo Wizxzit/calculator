@@ -1,7 +1,7 @@
 // variables
 let answer = 0;
 let bottomString = "", topString = "";
-let mathFunction = (a, b) => a + b;
+let mathFunction;
 let lastPressed = "num";
 
 // DOM 
@@ -101,10 +101,16 @@ decimal.addEventListener('click', function () {
 const equal = document.getElementById("equal");
 equal.addEventListener('click', function () {
     clearDisplay();
-
-    answer = evaulate(topString, bottomString);
-    topString = "";
-    bottomString = answer;
+    if ((topString != "") && (bottomString != "")){
+        answer = evaulate(topString, bottomString);
+        topString = "";
+        bottomString = answer;
+    } else if (topString == "") {
+        answer = evaulate(answer, bottomString);
+        topString = "";
+        bottomString = answer;
+    }
+    mathFunction = undefined;
     bottomDisplay.append(bottomString);
     lastPressed = "equal";
 });
@@ -128,8 +134,9 @@ ans.addEventListener('click', function () {
 //
 const plus = document.getElementById("plus");
 plus.addEventListener('click', function () {
-    mathFunction = (a, b) => a + b;
-
+    if (mathFunction == undefined) {
+        mathFunction = (a, b) => a + b;
+    }
     if (topString == "") {
         topString = bottomString;
         clearBottom();
@@ -139,59 +146,64 @@ plus.addEventListener('click', function () {
         clearBottom();
         displayAnsTop();
     }
+    mathFunction = (a, b) => a + b;
     currentOperator.append("+");
     lastPressed = "function";
 });
 
 const minus = document.getElementById("minus");
 minus.addEventListener('click', function () {
-    mathFunction = (a, b) => a - b;
-    clearDisplay;
-
+    if (mathFunction == undefined) {
+        mathFunction = (a, b) => a - b;
+    }
     if (topString == "") {
-        answer = bottomString;
-        clear(bottomDisplay);
-        displayAnsTop();
+        topString = bottomString;
+        clearBottom();
+        topDisplay.append(topString);
     } else {
         answer = evaulate(topString, bottomString);
         clearBottom();
         displayAnsTop();
     }
+    mathFunction = (a, b) => a - b;
     currentOperator.append("-");
     lastPressed = "function";
 });
 
 const divide = document.getElementById("divide");
 divide.addEventListener('click', function () {
-    mathFunction = (a, b) => a / b;
-    clearDisplay;
-
+    if (mathFunction == undefined) {
+        mathFunction = (a, b) => a / b;
+    }
     if (topString == "") {
-        answer = bottomString;
-        clear(bottomDisplay);
-        displayAnsTop();
+        topString = bottomString;
+        clearBottom();
+        topDisplay.append(topString);
     } else {
         answer = evaulate(topString, bottomString);
         clearBottom();
         displayAnsTop();
     }
+    mathFunction = (a, b) => a / b;
     currentOperator.append("/");
     lastPressed = "function";
 });
 
 const multiply = document.getElementById("multiply");
 multiply.addEventListener('click', function () {
-    mathFunction = (a, b) => a * b;
-    clearDisplay;
-
+    if (mathFunction == undefined) {
+        mathFunction = (a, b) => a - b;
+    }
     if (topString == "") {
-        answer = bottomString;
-        displayAnsTop();
+        topString = bottomString;
+        clearBottom();
+        topDisplay.append(topString);
     } else {
         answer = evaulate(topString, bottomString);
         clearBottom();
         displayAnsTop();
     }
+    mathFunction = (a, b) => a * b;
     currentOperator.append("x");
     lastPressed = "function";
 });
