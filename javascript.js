@@ -224,6 +224,9 @@ del.addEventListener('click', function () {
     if ((bottomString == "") || (bottomString.length === 1) || (bottomString == "0")) {
         clearBottom();
         addToBottom("0");
+    } else if ((bottomString == "0") && (topString != "") && (currentOperator.innerHTML.trim() != "")) {
+        clear(currentOperator);
+        mathFunction = undefined;
     } else {
         bottomString = bottomString.slice(0, -1);
         clear(bottomDisplay);
@@ -303,15 +306,6 @@ function containDecimal() {
     }
 };
 
-// checks to see if the state of the calculator is after an equal button press
-function afterEqual() {
-   if (currentOperator.innerHTML.trim() === "") {
-    return true;
-   } else {
-    return false;
-   }
-};
-
 function Pressed() {
     if (lastPressed === "num") {
     } else if (lastPressed == "equal") {
@@ -321,11 +315,6 @@ function Pressed() {
 
     }
 };
-
-function justifyAns(ans) {
-    if (ans.length > 12) {
-        return Number(ans.slice(0, 12));
-}};
 
 function init() {
     bottomString = "0";
