@@ -80,12 +80,12 @@ body {
 #topDisplay,
 #bottomDisplay {
     margin: 0 0.5rem 0 0.5rem;
-    width: 23rem;
+    width: 22rem;
     overflow: hidden;
 }
 
 #topDisplay {
-    width: 18rem;
+    width: 16rem;
     height: 4rem;
 }
 
@@ -97,6 +97,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     font-size: 3rem;
+    overflow: hidden;
 }
 #numerator {
     justify-content: flex-start;
